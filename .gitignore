@@ -1,0 +1,38 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/pfa-platform/dist
+/pfa-platform/tmp
+
+# dependencies
+/pfa-platform/node_modules
+/pfa-server/node_modules
+/pfa-platform/bower_components
+
+# IDEs and editors
+/pfa-platform/.idea
+
+# misc
+/pfa-platform/.sass-cache
+/pfa-platform/connect.lock
+/pfa-platform/coverage/*
+/pfa-platform/libpeerconnection.log
+npm-debug.log
+testem.log
+/pfa-platform/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db
+
+
+/pfa-platform/npm-debug.log
+/pfa-platform/testem.log
+/pfa-platform/e2e/*.js
+/pfa-platform/e2e/*.map
+/pfa-platform/e2e/.DS_Store
+/pfa-platform/e2e/Thumbs.db

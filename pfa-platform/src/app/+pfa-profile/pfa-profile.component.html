@@ -1,0 +1,174 @@
+<div class="container pfa-container">
+  <form role="form">
+    <!-- ************************************ -->
+    <!--               Personal Data          -->
+    <!-- ************************************ -->
+    <div id="personal-data" class="row">
+      <div id="picture" class="col-sm-2">
+        <!--   ADD PICTURE -->
+      </div>
+      <div id="name-age" class="col-sm-10">
+        <div class="row space-top">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">{{dict.getLabelText('name')}}</label>
+              <md-input type="text" id="name"></md-input>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="year">{{dict.getLabelText('yearOfBirth')}}</label>
+              <md-input type="text" id="year"></md-input>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <sliding-button onIcon="{{config.imgPath + 'male.png'}}" 
+                          offIcon="{{config.imgPath + 'female.png'}}"
+                          [checked]="true"
+                          (changeStatus)="setGender($event)">
+            </sliding-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ************************************ -->
+    <!--               Cancel Continue        -->
+    <!-- ************************************ -->
+    <div id="cancel-continue" class="row">
+      <div id="picture" class="col-sm-1 col-sm-offset-9">
+        <button md-raised-button (click)="cancel()">{{dict.getLabelText('cancel')}}</button>
+      </div>
+      <div id="picture" class="col-sm-1">
+        <button md-raised-button (click)="continue()">{{dict.getLabelText('continue')}}</button>
+      </div>
+    </div>
+    
+    
+    <!-- ************************************ -->
+    <!--               Starting point         -->
+    <!-- ************************************ -->
+    <div id="starting-point" class="row">
+      <!--       TITLE      -->
+      <div id="sp-title-row" class="row">
+        <div id="sp-title" class="col-sm-4 sp">
+          {{dict.getLabelText('startingPoint')}}
+        </div>
+      </div>
+      <!--       BODY      -->
+      <div id="sp-body" class="row sp">
+        <div class="col-sm-12">
+          <!--      ASSET LIABILITY ROW 1      -->
+          <div id="sp-body1" class="row">
+            <!--      ASSET 1      -->
+            <div id="sp-asset1" class="col-sm-6">
+              <div id="sp-asset1-title-row" class="row">
+                <div id="sp-asset1-title" class="col-sm-6  sp-title sp-asset-title">
+                  {{dict?.getLabelText('savings')}}
+                </div>
+              </div>
+              <!--      ASSET 1 FIELDS     -->
+              <div id="sp-asset1-body-row1" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.savings" 
+                                            inputName="savingsToday">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-asset1-body-row2" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.savings" 
+                                            inputName="monthlySavings">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-asset1-body-row3" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.savings" 
+                                            inputName="yearlyReturn" type="P">
+                </pfa-profile-amount-input>
+              </div>
+            </div>
+            <!--      LIABILITY 1      -->
+            <div id="sp-liability1" class="col-sm-6">
+              <div id="sp-liability1-title-row" class="row">
+                <div id="sp-liability1-title" class="col-sm-6  sp-title sp-liability-title">
+                  {{dict.getLabelText('mortgage')}}
+                </div>
+              </div>
+              <!--      LIABILITY 1 FIELDS     -->
+              <div id="sp-liability1-body-row1" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.mortgages" 
+                                            inputName="amount">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-liability1-body-row2" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.mortgages" 
+                                            inputName="interestRate" type="P">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-liability1-body-row3" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.mortgages" 
+                                            inputName="yearStart" type="I">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-liability1-body-row4" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.mortgages" 
+                                            inputName="durationYears" type="I">
+                </pfa-profile-amount-input>
+              </div>
+            </div>
+          </div>
+          
+          <!--      ASSET LIABILITY ROW 2      -->
+          <div id="sp-body2" class="row">
+            <!--      ASSET 2      -->
+            <div id="sp-asset2" class="col-sm-6">
+              <div id="sp-asset2-title-row" class="row">
+                <div id="sp-asset2-title" class="col-sm-6  sp-title sp-asset-title">
+                  {{dict?.getLabelText('properties')}}
+                </div>
+              </div>
+              <!--      ASSET 2 FIELDS     -->
+              <div id="sp-asset1-body-row1" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.properties" 
+                                            inputName="valueToday">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-asset1-body-row2" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.properties" 
+                                            inputName="expectedIncrease" type="P">
+                </pfa-profile-amount-input>
+              </div>
+            </div>
+            <!--      LIABILITY 2      -->
+            <div id="sp-liability2" class="col-sm-6">
+              <div id="sp-liability2-title-row" class="row">
+                <div id="sp-liability2-title" class="col-sm-6  sp-title sp-liability-title">
+                  {{dict?.getLabelText('loans')}}
+                </div>
+              </div>
+              <!--      LIABILITY 2 FIELDS     -->
+              <div id="sp-liability2-body-row1" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.loans" 
+                                            inputName="amount">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-liability2-body-row2" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.loans" 
+                                            inputName="interestRate" type="P">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-liability2-body-row3" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.loans" 
+                                            inputName="yearStart" type="I">
+                </pfa-profile-amount-input>
+              </div>
+              <div id="sp-liability2-body-row4" class="row">
+                <pfa-profile-amount-input [profileObj]="profile.loans" 
+                                            inputName="durationYears" type="I">
+                </pfa-profile-amount-input>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </form>
+</div>

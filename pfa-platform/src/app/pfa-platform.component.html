@@ -1,0 +1,54 @@
+
+<md-sidenav-layout>
+  <!-- ***************************************  -->
+  <!--                   Sidenav                -->
+  <!-- ***************************************  -->
+  <md-sidenav #sidenav (open)="mybutton.focus()" align="start">
+     <div class="dropdown sn-dd">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{dict.getLabelText('manageParties')}}
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu sn-dd-item">
+          <li><a (click)="goToProfile()">{{dict.getLabelText('addProfile')}}</a></li>
+        </ul>
+      </div>
+        
+    <br> <br>
+    <button #mybutton (click)="sidenav.close()">Close</button>
+  </md-sidenav>
+  
+  
+  <!-- ***************************************  -->
+  <!--                   Toolbar                -->
+  <!-- ***************************************  -->
+  <md-toolbar color="primary">
+    <button class="app-icon-button btn btn-default btn-sm" (click)="sidenav.toggle()">
+      <span class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+    <img src="{{config.imgPath + 'pfa2.jpeg'}}" class="img-rounded img-responsive space" width="200">
+    
+    <span class="fill-remaining-space"></span>
+    
+    <div class="btn-group" dropdown [(isOpen)]="toolBarDdMenuStatus.isopen">
+      <button id="single-button" type="button" class="btn btn-primary" dropdownToggle [disabled]="toolBarDdMenuDisabled">
+        <span class="glyphicon glyphicon-user"></span>
+        User
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+        <li role="menuitem"><a class="dropdown-item" href="#">Logout</a></li> 
+      </ul>
+    </div>
+    
+    <md-toolbar-row>
+      <h3>{{routeTitle}}<small class="subtitle">{{'            ' + routeSubtitle}}</small></h3>
+    </md-toolbar-row>
+  
+  </md-toolbar>
+
+   
+  <!-- ***************************************  -->
+  <!--                   Content                -->
+  <!-- ***************************************  -->
+  <router-outlet></router-outlet>
+
+</md-sidenav-layout>

@@ -1,0 +1,48 @@
+.space-top {
+    margin-top: 10px;
+}
+
+/* 'sp' prefix stands for 'starting point' */
+.sp {
+    border-width: thick;
+    border-style: groove;
+    border-color: lightgray;
+}
+.sp-title {
+    border-width: thin;
+    border-style: solid;
+    border-color: black;
+    color: whitesmoke;
+}
+.sp-asset-title {
+    background-color: darkslateblue;
+}
+.sp-liability-title {
+    background-color: darkred;
+}
+.sp-label {
+    font-size: smaller;
+    font-weight: normal;
+    margin-top: 15px;
+}
+
+/* pg -- Profile Goal */
+#pg-name {
+    color: darkred;
+	transform: rotate(-45deg);
+	transform-origin: left top 0;
+    font-weight: bold;
+    margin-bottom: -0.5em;
+}
+#pg-icon {
+    color: darkred;
+    margin-top: 1em;
+    margin-left: 0.4em;
+    font-size: x-large;
+}
+.pglarge {
+    font-size: large;
+}
+.pgmedium {
+    font-size: medium;
+}
