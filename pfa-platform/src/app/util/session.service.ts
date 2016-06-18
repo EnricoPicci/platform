@@ -1,6 +1,6 @@
 import { Subject }    from 'rxjs/Subject';
 
-import {PfaProfileModel} from '../+pfa-profile/';
+import {PfaProfileModel} from '../pfa-model/';
 
 export class SessionService {
     public editMode = false;

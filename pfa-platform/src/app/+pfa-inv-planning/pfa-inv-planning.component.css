@@ -1,0 +1,40 @@
+#plan-area {
+    position: relative;
+}
+#left-sidebar-area {
+    /*position: relative;
+    bottom: +30px;
+    top: 0px;*/
+}
+#right-sidebar-area {
+    position: absolute;
+    right: 0px;
+}
+#sidebar-filler {
+    /*position: relative;
+    bottom: +30px;
+    top: 0px;*/
+    height: 1px;
+}
+#chart-area {
+    position: absolute;
+    bottom: 0px;
+}
+
+.planning-timeline {   
+    width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+}
+.planning-period {
+    width: 10%;
+    vertical-align: top;
+    text-align: center;
+    background-color: grey;
+    color: white;
+    border-color: lightgray;
+    border-style: ridge;
+}

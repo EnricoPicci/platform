@@ -3,9 +3,9 @@ import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import {Observable}     from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/Rx';
 
-import {PfaProfileModel} from '../+pfa-profile/';
-import {PfaProfileGoalModel} from '../+pfa-profile/pfa-profile-goal.model'
-import {PfaProfileTemplateModel} from '../+pfa-profile-choose-similar';
+import {PfaProfileModel} from '../pfa-model/';
+import {PfaProfileGoalModel} from '../pfa-model/';
+import {PfaProfileTemplateModel} from '../pfa-model';
 
 import {ConfigService} from '../util/config.service';
 
@@ -43,10 +43,7 @@ export class PfaBackendRestServerService {
                   let goals = new Array<PfaProfileGoalModel>();
                   for (let j = 0; j < goalsJson.length; j++) {
                     let goalJson = goalsJson[j];
-                    let goal = new PfaProfileGoalModel();
-                    goal.age = goalJson.age;
-                    goal.name = goalJson.name;
-                    goal.iconId = goalJson.iconId;
+                    let goal = this.createGoal(goalJson);
                     goals.push(goal);
                   }
                   template.goals = goals;
@@ -56,6 +53,32 @@ export class PfaBackendRestServerService {
             }
         )
         .catch(this.handleError)
+    }
+    
+  getGoals(inProfile: PfaProfileModel) {
+    let myUrl = this.config.baseServicesUrl + 'profile/goals';
+    return this.http.get(myUrl)
+        .map(
+            res => {
+                let goals = new Array<PfaProfileGoalModel>();
+                let goalsJson = res.json();
+                for (let j = 0; j < goalsJson.length; j++) {
+                let goalJson = goalsJson[j];
+                let goal = this.createGoal(goalJson);
+                goals.push(goal);
+                }
+                return goals;
+            }
+        )
+        .catch(this.handleError)
+    }
+    
+    private createGoal(inGoalJson) {
+        let goal = new PfaProfileGoalModel();
+        goal.age = inGoalJson.age;
+        goal.name = inGoalJson.name;
+        goal.iconId = inGoalJson.iconId;
+        return goal;
     }
   /*******************************************
  * END manage Profiles

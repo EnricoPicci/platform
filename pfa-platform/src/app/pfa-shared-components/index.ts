@@ -1,0 +1,1 @@
+export { PfaProfileGoalComponent } from './pfa-profile-goal.component';

@@ -25,24 +25,3 @@
     font-weight: normal;
     margin-top: 15px;
 }
-
-/* pg -- Profile Goal */
-#pg-name {
-    color: darkred;
-	transform: rotate(-45deg);
-	transform-origin: left top 0;
-    font-weight: bold;
-    margin-bottom: -0.5em;
-}
-#pg-icon {
-    color: darkred;
-    margin-top: 1em;
-    margin-left: 0.4em;
-    font-size: x-large;
-}
-.pglarge {
-    font-size: large;
-}
-.pgmedium {
-    font-size: medium;
-}

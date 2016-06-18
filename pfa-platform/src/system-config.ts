@@ -8,6 +8,8 @@ const map: any = {
   'moment':                     'vendor/moment',
   'primeui':                    'vendor/primeui',
   'primeng':                    'vendor/primeng',
+  'dragula':                    'vendor/dragula/dist/dragula.js',
+  'ng2-dragula':                'vendor/ng2-dragula', 
 };
 
 /** User packages configuration. */
@@ -55,13 +57,15 @@ const packages: any = {
   'primeui': {
     format: 'cjs',
     defaultExtension: 'js',
-    main: 'primeng.js'
+    main: 'primeui.js'
   },
   'primeng': {
     format: 'cjs',
     defaultExtension: 'js',
     main: 'primeng.js'
-  }
+  },
+  'dragula': { defaultExtension: 'js' },
+  'ng2-dragula': {defaultExtension: 'js' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,10 +91,13 @@ const barrels: string[] = [
   'app/shared',
   'app/util',
   'app/util-components',
+  'app/pfa-model',
+  'app/pfa-shared-components',
   'app/pfa-party',
   'app/+pfa-profile',
   'app/+pfa-profile-choose-similar',
   'app/pfa-backend-rest-server',
+  'app/+pfa-inv-planning',
   /** @cli-barrel */
 ];
 
@@ -114,3 +121,4 @@ System.config({
 
 // Apply the user's configuration.
 System.config({ map, packages });
+

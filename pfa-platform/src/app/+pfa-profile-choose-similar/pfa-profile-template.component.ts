@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
-import {PfaProfileTemplateModel} from './pfa-profile-template.model';
+import {PfaProfileTemplateModel} from '../pfa-model';
 
-import {PfaProfileGoalComponent} from '../+pfa-profile/pfa-profile-goal.component';
+import {PfaProfileGoalComponent} from '../pfa-shared-components/pfa-profile-goal.component';
 
 @Component({
   moduleId: module.id,
@@ -37,7 +38,7 @@ export class PfaProfileTemplateComponent {
   public template: PfaProfileTemplateModel;
   public size = 'L'; // L for large, M for medium
   
-  constructor() {}
+  constructor(private router: Router) {}
   
   ngOnInit() {
     console.log('here I am 1 ' + this.size);
@@ -59,7 +60,7 @@ export class PfaProfileTemplateComponent {
   }
   
   onClick() {
-    console.log(this.template);
+    this.router.navigate(['pfa-profile']);
   }
 
 }

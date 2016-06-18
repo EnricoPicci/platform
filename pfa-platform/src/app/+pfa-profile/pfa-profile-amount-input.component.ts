@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import {MdInput} from '@angular2-material/input';
 
-import {PfaProfileModel} from './';
+import {PfaProfileModel} from '../pfa-model';
 import {ConfigService} from '../util/config.service';
 import {SessionService} from '../util/session.service';
 import {LabelDictionaryService} from '../util/labelDictionary.service';

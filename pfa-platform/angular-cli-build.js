@@ -17,6 +17,8 @@ module.exports = function(defaults) {
       'moment/**/*.js',
       'primeui/**/*.*',
       'primeng/**/*.js',
+      'dragula/**/*.*',
+      'ng2-dragula/**/*.js'
     ]
   });
 };

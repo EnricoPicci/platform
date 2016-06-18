@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import {Carousel} from 'primeng/primeng';
 
-import {PfaProfileTemplateModel} from './pfa-profile-template.model';
+import {PfaProfileTemplateModel} from '../pfa-model';
 import {PfaProfileTemplateComponent} from './pfa-profile-template.component';
 
 import {LabelDictionaryService} from '../util/labelDictionary.service';

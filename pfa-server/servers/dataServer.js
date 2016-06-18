@@ -1,7 +1,7 @@
 "use strict";
 var dbManager_1 = require('./dbManager');
 var serverResult_1 = require('./serverResult');
-var templateSimulator_1 = require('./templateSimulator');
+var simulator_1 = require('./simulator');
 var DataServer = (function () {
     function DataServer() {
     }
@@ -38,10 +38,16 @@ var DataServer = (function () {
         inHttpRes.json(inResult);
     };
     DataServer.prototype.getTemplates = function (inProfile, inHttpRes) {
-        // here I shuld have logic here to retrieve the best templates for a profile
+        // here I could maybe have logic here to retrieve the best templates for a profile
         // for now it is just an hardcoded simulation
-        var templates = templateSimulator_1.TemplateSimulator.getTemplates();
+        var templates = simulator_1.Simulator.getTemplates();
         inHttpRes.json(templates);
+    };
+    DataServer.prototype.getGoals = function (inProfile, inHttpRes) {
+        // here I shuld have logic here to retrieve the best goals for a profile
+        // for now it is just an hardcoded simulation
+        var goals = simulator_1.Simulator.getGoals();
+        inHttpRes.json(goals);
     };
     /*******************************************************************
      *  END Manage Profiles

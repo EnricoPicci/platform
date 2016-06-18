@@ -1,10 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router} from '@angular/router';
+import { PfaInvPlanningComponent } from './+pfa-inv-planning';
 
 import { PfaProfileChooseSimilarComponent } from './+pfa-profile-choose-similar';
 import { PfaProfileComponent } from './+pfa-profile';
-import { PfaProfileModel } from './+pfa-profile';
-import { PfaPartyModel } from './pfa-party';
+
+import { PfaProfileModel } from './pfa-model';
+import { PfaPartyModel } from './pfa-model';
 
 import {PfaBackendRestServerService} from './pfa-backend-rest-server/pfa-backend-rest-server.service';
 
@@ -27,7 +29,8 @@ import {LabelDictionaryService} from './util/labelDictionary.service';
 })
 @Routes([
   {path: '/pfa-profile', component: PfaProfileComponent},
-  {path: '/pfa-profile-choose-similar', component: PfaProfileChooseSimilarComponent}
+  {path: '/pfa-profile-choose-similar', component: PfaProfileChooseSimilarComponent},
+  {path: '/pfa-inv-planning', component: PfaInvPlanningComponent}
 ])
 export class PfaPlatformAppComponent {
   title = 'Pfa Platform';
@@ -51,7 +54,7 @@ export class PfaPlatformAppComponent {
     let profile = new PfaProfileModel();
     profile.party = new PfaPartyModel();
     this.session.currentProfile = profile;
-    this.router.navigate(['/pfa-profile']);
+    this.router.navigate(['pfa-profile-choose-similar']);
     this.sidenav.close();
   }
   

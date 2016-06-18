@@ -1,5 +1,5 @@
-export class TemplateSimulator {
-    // generates Templates simulating the real analytics server
+export class Simulator {
+    // generates Templates 
     static getTemplates() {
         let templates = [];
         let template;
@@ -142,5 +142,93 @@ export class TemplateSimulator {
         templates.push(template);
         
         return templates;
+    }
+    
+    // generates Goals 
+    static getGoals() {
+        let goals = [];
+        let goal;
+        // Goal 
+        goal = {};
+        goal.name = 'Ristruttura';
+        goal.iconId = 'fa-home';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Moto';
+        goal.iconId = 'fa-motorcycle';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Collezione';
+        goal.iconId = 'fa-bank';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Anniversario';
+        goal.iconId = 'fa-glass';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Studio';
+        goal.iconId = 'fa-line-chart';
+        goals.push(goal);
+        // Goal 
+        /*goal = {};
+        goal.name = 'Partner';
+        goal.iconId = 'fa-money';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Pensione';
+        goal.iconId = 'fa-blind';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Finanziamento';
+        goal.iconId = 'fa-money';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Internazionale';
+        goal.iconId = 'fa-rocket';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'IPO';
+        goal.iconId = 'fa-bell';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Viaggio';
+        goal.iconId = 'fa-plane';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Figlio';
+        goal.iconId = 'fa-venus-mars';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Casa';
+        goal.iconId = 'fa-home';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Università';
+        goal.iconId = 'fa-university';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'Matrimonio';
+        goal.iconId = 'fa-heart';
+        goals.push(goal);
+        // Goal 
+        goal = {};
+        goal.name = 'MBA';
+        goal.iconId = 'fa-university';
+        goals.push(goal);*/
+        
+        return goals;
     }
 }

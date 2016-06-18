@@ -1,4 +1,4 @@
-import {PfaPartyModel} from '../pfa-party/pfa-party.model';
+import {PfaPartyModel} from './pfa-party.model';
 import {PfaProfileSavingsModel} from './pfa-profile-savings.model';
 import {PfaProfilePropertiesModel} from './pfa-profile-properties.model';
 import {PfaProfileMortgagesModel} from './pfa-profile-mortgages.model';

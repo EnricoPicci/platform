@@ -1,4 +1,4 @@
-import {PfaProfileGoalModel} from '../+pfa-profile/pfa-profile-goal.model';
+import {PfaProfileGoalModel} from './pfa-profile-goal.model';
 
 export class PfaProfileTemplateModel {
   public age: number; 

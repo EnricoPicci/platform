@@ -3,7 +3,7 @@ import {DbManager} from './dbManager';
 import {ServerResult} from './serverResult';
 import {ServerResultDetail} from './serverResultDetail';
 
-import {TemplateSimulator} from './templateSimulator'
+import {Simulator} from './simulator'
 
 export class DataServer {
     private static singleton;
@@ -41,12 +41,18 @@ export class DataServer {
     }
     
     public getTemplates(inProfile, inHttpRes) {
-        // here I shuld have logic here to retrieve the best templates for a profile
+        // here I could maybe have logic here to retrieve the best templates for a profile
         // for now it is just an hardcoded simulation
-        let templates = TemplateSimulator.getTemplates();
+        let templates = Simulator.getTemplates();
         inHttpRes.json(templates);
     }
-    private 
+    
+    public getGoals(inProfile, inHttpRes) {
+        // here I shuld have logic here to retrieve the best goals for a profile
+        // for now it is just an hardcoded simulation
+        let goals = Simulator.getGoals();
+        inHttpRes.json(goals);
+    } 
     /*******************************************************************
      *  END Manage Profiles
      *******************************************************************/

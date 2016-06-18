@@ -4,7 +4,7 @@ import { Router} from '@angular/router';
 import {MdInput} from '@angular2-material/input';
 import {MdButton} from '@angular2-material/button';
 
-import {PfaProfileModel} from './';
+import {PfaProfileModel} from '../pfa-model/';
 import {PfaProfileAmountInputComponent} from './pfa-profile-amount-input.component';
 import {PfaBackendRestServerService} from '../pfa-backend-rest-server/pfa-backend-rest-server.service';
 
@@ -53,7 +53,7 @@ export class PfaProfileComponent implements OnInit {
       },
       (err) => {console.error('Error trying to save profile: ' + err)}
     )
-    this.router.navigate(['/pfa-profile-choose-similar']);
+    this.router.navigate(['/pfa-inv-planning']);
   }
   
   cancel() {

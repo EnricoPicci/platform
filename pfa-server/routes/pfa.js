@@ -40,6 +40,13 @@ router.get('/profile/templates', function(req, res) {
     var profile = req.body;
     DataServer.getSingleton().getTemplates(profile, res);
 });
+/*
+ * GET goals for a profile.
+ */
+router.get('/profile/goals', function(req, res) {
+    var profile = req.body;
+    DataServer.getSingleton().getGoals(profile, res);
+});
 /*******************************************
  * END Profile services
  *******************************************/
