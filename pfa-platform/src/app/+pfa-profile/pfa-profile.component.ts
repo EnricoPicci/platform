@@ -50,6 +50,7 @@ export class PfaProfileComponent implements OnInit {
         let _id = resp.json().returnInfo['_id'];
         console.log('Profile saved with _id: ' + _id);
         this.profile._id = _id;
+        this.profile.readyToPrint = true;
       },
       (err) => {console.error('Error trying to save profile: ' + err)}
     )

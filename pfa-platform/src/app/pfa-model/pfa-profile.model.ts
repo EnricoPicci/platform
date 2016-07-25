@@ -13,6 +13,8 @@ export class PfaProfileModel {
   public mortgages = new PfaProfileMortgagesModel();
   public loans = new PfaProfileLoansModel();
 
+  public readyToPrint = false;
+
   constructor() {}
 
 }

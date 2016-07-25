@@ -98,6 +98,7 @@ const barrels: string[] = [
   'app/+pfa-profile-choose-similar',
   'app/pfa-backend-rest-server',
   'app/+pfa-inv-planning',
+  'app/+pfa-profile-report',
   /** @cli-barrel */
 ];
 

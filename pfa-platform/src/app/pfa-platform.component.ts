@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router} from '@angular/router';
 import { PfaInvPlanningComponent } from './+pfa-inv-planning';
+import { PfaProfileReportComponent } from './+pfa-profile-report';
 
 import { PfaProfileChooseSimilarComponent } from './+pfa-profile-choose-similar';
 import { PfaProfileComponent } from './+pfa-profile';
@@ -30,7 +31,8 @@ import {LabelDictionaryService} from './util/labelDictionary.service';
 @Routes([
   {path: '/pfa-profile', component: PfaProfileComponent},
   {path: '/pfa-profile-choose-similar', component: PfaProfileChooseSimilarComponent},
-  {path: '/pfa-inv-planning', component: PfaInvPlanningComponent}
+  {path: '/pfa-inv-planning', component: PfaInvPlanningComponent},
+  {path: '/pfa-profile-report', component: PfaProfileReportComponent}
 ])
 export class PfaPlatformAppComponent {
   title = 'Pfa Platform';
@@ -50,11 +52,21 @@ export class PfaPlatformAppComponent {
     })
   }
   
+  ngOnInit() {
+    this.session.newTitle({title: this.dict.getLabelText('homePageTitle'), 
+                            subtitle: this.dict.getLabelText('homePageSubtitle')})
+  }
+
   goToProfile() {
     let profile = new PfaProfileModel();
     profile.party = new PfaPartyModel();
     this.session.currentProfile = profile;
     this.router.navigate(['pfa-profile-choose-similar']);
+    this.sidenav.close();
+  }
+
+  goToReport() {
+    this.router.navigate(['pfa-profile-report']);
     this.sidenav.close();
   }
   

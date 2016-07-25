@@ -16,9 +16,12 @@
     top: 0px;*/
     height: 1px;
 }
-#chart-area {
+#timeline-area {
     position: absolute;
     bottom: 0px;
+}
+#chart-area {
+    position: absolute;
 }
 
 .planning-timeline {   
