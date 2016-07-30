@@ -22,6 +22,7 @@
 }
 #chart-area {
     position: absolute;
+    /*z-index: -1;*/
 }
 
 .planning-timeline {   

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentResolver, ComponentRef, ComponentFactory, ViewContainerRef, ViewChild } from '@angular/core';
 
 import {Draggable,Droppable} from 'primeng/primeng';
 import {DataTable,Column} from 'primeng/primeng';
@@ -23,14 +23,16 @@ import {LabelDictionaryService} from '../util/labelDictionary.service';
 @Component({
   moduleId: module.id,
   selector: 'app-pfa-inv-planning',
-  templateUrl: 'pfa-inv-planning.component.html',
+  templateUrl: 'pfa-inv-planning.component.prime.html',
   styleUrls: ['pfa-inv-planning.component.css'],
-  viewProviders: [DragulaService],
+  viewProviders: [],
   directives: [PfaProfileGoalComponent,
-                Draggable, Droppable, DataTable, Column,
-                Dragula]
+                Draggable, Droppable]
 })
 export class PfaInvPlanningComponent {
+  @ViewChild('target', {read: ViewContainerRef}) target;
+  cmpRef: ComponentRef<any>;
+
   public profile: PfaProfileModel;
   public goals: Array<PfaProfileGoalModel>;
   public selectedGoals = new Array<PfaProfileGoalModel>();
@@ -38,10 +40,13 @@ export class PfaInvPlanningComponent {
   public planLength = 16;  // length of plan in years
   public planPeriodLength = 2; // number of years per period
 
+  public goalComponentOnTheMove: PfaProfileGoalComponent;
+
   constructor(private session: SessionService,
               private config: ConfigService,
               private backEnd: PfaBackendRestServerService,
-              private dict: LabelDictionaryService) {}
+              private dict: LabelDictionaryService,
+              private resolver: ComponentResolver) {}
 
   ngOnInit() {
     this.backEnd.getGoals(this.profile).subscribe(
@@ -68,29 +73,40 @@ export class PfaInvPlanningComponent {
   }
   
   dragStart(inEvent, inGoal: PfaProfileGoalModel) {
-      this.draggedGoal = inGoal;
-      console.log('drag start  ', inEvent);
+    this.draggedGoal = inGoal;
+    console.log('drag start  ', inEvent);
+  }
+  goalComponentMoveStart(inGoalComponent: PfaProfileGoalComponent) {
+    this.goalComponentOnTheMove = inGoalComponent;
   }
   
   drop(event) {
-      /*if(this.draggedGoal) {
-          this.selectedGoals.push(this.draggedGoal);
-          this.goals.splice(this.findIndex(this.draggedGoal), 1);
-          this.draggedGoal = null;
-      }*/
-      console.log('drop  ', event);
+    console.log('drop  ', event);
+    console.log('drop x --', event.clientX);
+    console.log('drop y --', event.clientY);
+
+    if (this.goalComponentOnTheMove) {
+      this.goalComponentOnTheMove.positionLeft = event.clientX;
+      this.goalComponentOnTheMove.positionTop = event.clientY;
+      this.goalComponentOnTheMove = null;
+    } else {
+      this.resolver.resolveComponent(PfaProfileGoalComponent).then(
+        (factory: ComponentFactory<any>) => {
+          this.cmpRef = this.target.createComponent(factory);
+          this.cmpRef.instance.goal = this.draggedGoal;
+          this.cmpRef.instance.direction = 'H';
+          this.cmpRef.instance.size = 'S';
+          this.cmpRef.instance.positionLeft = event.clientX;
+          this.cmpRef.instance.positionTop = event.clientY;
+          this.cmpRef.instance.moveStart.subscribe((goalComponent) => this.goalComponentMoveStart(goalComponent));
+        }
+      )
+    }
   }
   
   dragEnd(event) {
       this.draggedGoal = null;
       console.log('drag end  ', event);
-  }
-  
-  onDragOver(event) {
-    console.log('onDragOver --- ', event);
-  }
-  onClick(event) {
-    console.log('onClick --- ', event);
   }
 
 }
