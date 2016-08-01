@@ -17,8 +17,14 @@ module.exports = function(defaults) {
       'moment/**/*.js',
       'primeui/**/*.*',
       'primeng/**/*.js',
-      'dragula/**/*.*',
-      'ng2-dragula/**/*.js'
+      //'dragula/**/*.*',
+      //'ng2-dragula/**/*.js,'
+      'chart.js/dist/Chart.js',
+      'chartjs-color/dist/color.js',
+      'chartjs-color-string/*.js',
+      'ng2-charts/components/charts/charts.js',
+      //'ng2-charts/bundles/ng2-charts.js',
+      'ng2-charts/ng2-charts.js',
     ]
   });
 };

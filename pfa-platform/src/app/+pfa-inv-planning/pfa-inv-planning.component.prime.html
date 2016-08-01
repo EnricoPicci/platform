@@ -20,11 +20,20 @@
       <!--          CHART AREA       -->
       <!-- ************************  -->
       
-      <div id="chart-area" class="ui-grid-col-9" #target>
-          <img src="{{config.imgPath + 'graph.png'}}" width="1000" height="280" 
+      <div id="chart-area" class="ui-grid-col-9" #target 
             pDroppable="goals" (onDrop)="drop($event)">
+          <!--img src="{{config.imgPath + 'graph.png'}}" width="1000" height="280"-->
+          <base-chart style="display: block; width: 785px; height: 280px;"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColours"
+                [legend]="lineChartLegend"
+                chartType="line"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></base-chart>
       </div>
-      <div id="timeline-area" 
+      <!--div id="timeline-area" 
         class="ui-grid-col-9" [class.ui-state-highlight]="draggedGoal">
             <div class="planning-timeline" class="ui-grid-row">
                 <div id="0" class="planning-period">16-18</div>
@@ -38,7 +47,7 @@
                 <div id="8" class="planning-period">32-34</div>
                 <div id="9" class="planning-period">34-36</div>
             </div>
-      </div>
+      </div-->
       
 
       <!-- ************************  -->

@@ -63,6 +63,7 @@ export class PfaProfileGoalComponent {
                 'position': 'absolute',
                 'top': this.positionTop + 'px',
                 'left': this.positionLeft + 'px',
+                'z-index': 1,
             }
         }
         return styles;

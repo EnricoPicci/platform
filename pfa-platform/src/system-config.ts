@@ -8,8 +8,10 @@ const map: any = {
   'moment':                     'vendor/moment',
   'primeui':                    'vendor/primeui',
   'primeng':                    'vendor/primeng',
-  'dragula':                    'vendor/dragula/dist/dragula.js',
-  'ng2-dragula':                'vendor/ng2-dragula', 
+  //'dragula':                    'vendor/dragula/dist/dragula.js',
+  //'ng2-dragula':                'vendor/ng2-dragula',
+  //'ng2-charts':                 'vendor/ng2-charts/bundles', 
+  'ng2-charts':                 'vendor/ng2-charts', 
 };
 
 /** User packages configuration. */
@@ -64,8 +66,13 @@ const packages: any = {
     defaultExtension: 'js',
     main: 'primeng.js'
   },
-  'dragula': { defaultExtension: 'js' },
-  'ng2-dragula': {defaultExtension: 'js' }
+  //'dragula': { defaultExtension: 'js' },
+  //'ng2-dragula': {defaultExtension: 'js' },
+  'ng2-charts': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'ng2-charts.js'
+  },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,7 +100,7 @@ const barrels: string[] = [
   'app/util-components',
   'app/pfa-model',
   'app/pfa-shared-components',
-  'app/pfa-party',
+  //'app/pfa-party',
   'app/+pfa-profile',
   'app/+pfa-profile-choose-similar',
   'app/pfa-backend-rest-server',
